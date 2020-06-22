@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InfoUser extends Model
 {
-    //
+    public $timestamps = false;
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
