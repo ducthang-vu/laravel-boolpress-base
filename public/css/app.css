@@ -10928,3 +10928,7 @@ a.text-dark:focus {
   }
 }
 
+.user-pic {
+  width: 250px;
+}
+
