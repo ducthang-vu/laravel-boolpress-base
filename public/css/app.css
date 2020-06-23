@@ -10936,7 +10936,19 @@ a.text-dark:focus {
   display: inline-flex;
 }
 
-.user-pic {
-  width: 250px;
+.users-index-page .user-pic {
+  max-height: 250px;
+}
+
+.a-reset:hover {
+  text-decoration: none;
+}
+
+.hover-translate-up {
+  transition: transform 0.5s;
+}
+
+.hover-translate-up:hover {
+  transform: translateY(-10px);
 }
 

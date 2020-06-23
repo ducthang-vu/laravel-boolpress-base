@@ -1,6 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'partials/posts_index.scss';
+@import 'partials/users_index.scss';
 
-.user-pic {
-    width: 250px;
+
+.a-reset {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.hover-translate-up {
+    transition: transform 0.5s;
+
+    &:hover {
+        transform: translateY(-10px);
+    }
 }
