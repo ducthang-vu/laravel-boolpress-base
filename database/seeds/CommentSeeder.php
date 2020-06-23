@@ -16,12 +16,12 @@ class CommentSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for($i = 0; $i < 10; $i++) {
-            $newPost = new Comment();
-            $newPost->user_id = User::all()->random()->id;
-            $newPost->post_id = Post::all()->random()->id;
-            $newPost->body = $faker->text(300);
-            $newPost->save();
+        for($i = 0; $i < 100; $i++) {
+            $newComment= new Comment();
+            $newComment->user_id = User::all()->random()->id;
+            $newComment->post_id = Post::all()->random()->id;
+            $newComment->body = $faker->text(300);
+            $newComment->save();
         }
     }
 }
