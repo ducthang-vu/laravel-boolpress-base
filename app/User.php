@@ -60,4 +60,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Comment');
     }
+
+    /**
+     * UTILITIES
+     */
+    public function getFullName() {
+        return sprintf('%s %s', $this->name, $this->surname);
+    }
 }

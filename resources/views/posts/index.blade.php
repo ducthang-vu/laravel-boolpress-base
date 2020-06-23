@@ -1,17 +1,36 @@
 @extends('layouts.main')
 
 @section('main-content')
-    <div class="container">
-        <h2>All posts</h2>
-        <ul>
+    <div class="post-index container">
+        <div class="pagination-box">
             {{ $posts->links() }}
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 mt-4">
             @foreach ($posts as $post)
-                <li>
-                    <p><a href="{{ Route('posts.show', $post->id) }}">{{ $post->title }}</a></p>
-                    <p>Created at: {{ $post->created_at }}</p>
-                    <p>Last update: {{ $post->updated_at }}</p>
-                </li>
+                <div class="col mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                by <a href="{{ Route('users.show', $post->user->id) }}">
+                                    {{ $post->user->getFullName()}}
+                                </a>
+                            </h6>
+                            <h6 class="card-subtitle mb-2 text-muted">
+                                Created at: {{ $post->created_at }}<br>
+                                Last update: {{ $post->updated_at }}
+                            </h6>
+                            <blockquote>{{ substr($post->body, 0, 150) }}...</blockquote>
+                            <a href="{{ Route('posts.show', $post->id) }}" class="btn btn-primary">Open post</a>
+                        </div>
+                    </div>
+                </div>
             @endforeach
-        </ul>
+        </div>
+
+        <div class="pagination-box">
+            {{ $posts->links() }}
+        </div>
     </div>
 @endsection

@@ -10928,6 +10928,14 @@ a.text-dark:focus {
   }
 }
 
+.post-index .pagination-box {
+  text-align: center;
+}
+
+.post-index .pagination-box .pagination {
+  display: inline-flex;
+}
+
 .user-pic {
   width: 250px;
 }
