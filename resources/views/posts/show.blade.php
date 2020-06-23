@@ -14,7 +14,7 @@
                 Last update: {{ $post->updated_at }}
             </li>
         </ul>
-        <blockquote class="mt-3 p-3">
+        <blockquote class="mt-3 p-3 bg-light">
             {{ $post->body }}
         </blockquote>
 
@@ -28,7 +28,7 @@
                                 {{ $comment->user->getFullName()}}
                             </a>
                         </h6>
-                        <blockquote>
+                        <blockquote class="bg-light p-2">
                             {{ $comment->body }}
                         </blockquote>
                         <h6 class="card-subtitle mb-2 text-muted">

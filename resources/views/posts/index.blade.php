@@ -21,7 +21,7 @@
                                 Created at: {{ $post->created_at }}<br>
                                 Last update: {{ $post->updated_at }}
                             </h6>
-                            <blockquote>{{ substr($post->body, 0, 150) }}...</blockquote>
+                            <blockquote class="bg-light">{{ substr($post->body, 0, 150) }}...</blockquote>
                             <a href="{{ Route('posts.show', $post->id) }}" class="btn btn-primary">Open post</a>
                         </div>
                     </div>

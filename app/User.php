@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use phpDocumentor\Reflection\Types\Integer;
 
 class User extends Authenticatable
 {
@@ -66,5 +67,9 @@ class User extends Authenticatable
      */
     public function getFullName() {
         return sprintf('%s %s', $this->name, $this->surname);
+    }
+
+    public function getLatestActivity(Int $n) {
+        return $this->comments->concat($this->posts)->sortByDesc('created_at')->splice(0, $n);
     }
 }
