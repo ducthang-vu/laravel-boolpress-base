@@ -15,4 +15,12 @@ class Post extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }
