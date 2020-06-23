@@ -18,7 +18,7 @@ class PostSeeder extends Seeder
             $newPost = new Post();
             $newPost->user_id =  User::all()->random()->id;
             $newPost->title = $faker->text(50);
-            $newPost->body = $faker->text(600);
+            $newPost->body = $faker->text(4500);
             $newPost->save();
         }
     }

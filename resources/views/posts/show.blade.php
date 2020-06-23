@@ -2,7 +2,7 @@
 
 @section('main-content')
     <div class="container">
-        <h1 class=text-center>{{ $post->title }}</h1>
+        <h1 class="mb-3 text-center">{{ $post->title }}</h1>
         <ul class="list-group">
             <li class="list-group-item">
                 Author: <a href="{{ Route('users.show', $post->user->id)}}">{{ $post->user->getFullName() }}</a>
@@ -17,9 +17,26 @@
         <blockquote class="mt-3 p-3">
             {{ $post->body }}
         </blockquote>
+
         <section class="mt-3">
+            <h4 class="text-center">Comments</h4>
             @foreach ($post->comments as $comment)
-                @dump($comment)
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            by <a href="{{ Route('users.show', $comment->user->id) }}">
+                                {{ $comment->user->getFullName()}}
+                            </a>
+                        </h6>
+                        <blockquote>
+                            {{ $comment->body }}
+                        </blockquote>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            Created at: {{ $comment->created_at }}<br>
+                            Last update: {{ $comment->updated_at }}
+                        </h6>
+                    </div>
+                </div>
             @endforeach
         </section>
     </div>
