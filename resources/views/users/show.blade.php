@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="users-show-page container">
-        <header>
+        <header class="text-center mb-5">
             <h1 class="mb-3 text-center">{{ $user->getFullName() }}</h1>
-            <div class="d-flex mb-3">
+            <div class="d-inline-flex mb-3">
                 <img src="{{ $user->info->avatar }}" alt="Not available" class="avatar">
                 <ul class="list-group">
                     <li class="list-group-item">Id #: {{ $user->id }}</li>
