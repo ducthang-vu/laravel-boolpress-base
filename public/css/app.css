@@ -10936,7 +10936,7 @@ a.text-dark:focus {
   display: inline-flex;
 }
 
-.users-index-page .user-pic {
+.users-show-page .avatar {
   max-height: 250px;
 }
 
