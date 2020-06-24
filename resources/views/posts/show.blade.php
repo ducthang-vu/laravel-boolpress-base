@@ -9,10 +9,10 @@
         @endif
 
        <a href="{{ route('posts.edit', $post->id) }}" class="text-primary">Edit post</a>
-       <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method=""POST">
-           @csrf
-           @method('DELETE')
-           <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+       <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Delete" class="btn btn-danger">
        </form>
 
         <h1 class="mb-3 text-center">{{ $post->title }}</h1>

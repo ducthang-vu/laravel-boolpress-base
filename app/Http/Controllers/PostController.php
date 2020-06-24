@@ -129,7 +129,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         if (empty($post)) {
-            var_dump($post);
+            abort(404);
         }
 
         $title = $post->title;
