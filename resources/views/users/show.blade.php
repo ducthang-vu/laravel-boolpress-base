@@ -22,7 +22,7 @@
                 <section class="posts col-6">
                     <h5 class="pl-5">Posts by {{ $user->name }}</h5>
                     @foreach ($user->posts as $post)
-                        <a href="{{ Route('posts.show', $post->id) }}" class="a-reset">
+                        <a href="{{ Route('posts.show', $post->slug) }}" class="a-reset">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $post->title }}</h5>
@@ -39,10 +39,10 @@
                 <section class="comments">
                     <h5 class="pl-5">Comments by {{ $user->name }}</h5>
                     @foreach ($user->comments as $comment)
-                        <a href="{{ Route('posts.show', $post->id) }}" class="a-reset"> {{-- come fare? --}}
+                        <a href="{{ Route('posts.show', $post->slug) }}" class="a-reset"> {{-- come fare? --}}
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">In {{ $comment->post->title }}</h5>
+                                    <h5 class="card-title">on "{{ $comment->post->title }}"</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">
                                         Created at: {{ $post->created_at }}<br>
                                         Last update: {{ $post->updated_at }}

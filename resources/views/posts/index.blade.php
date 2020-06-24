@@ -2,6 +2,8 @@
 
 @section('main-content')
     <div class="post-index container">
+        <a href="{{ route('posts.create') }}" class="btn btn-primary">New post</a>
+
         <div class="pagination-box">
             {{ $posts->links() }}
         </div>
@@ -22,7 +24,7 @@
                                 Last update: {{ $post->updated_at }}
                             </h6>
                             <blockquote class="bg-light">{{ substr($post->body, 0, 150) }}...</blockquote>
-                            <a href="{{ Route('posts.show', $post->id) }}" class="btn btn-primary">Open post</a>
+                            <a href="{{ Route('posts.show', $post->slug) }}" class="btn btn-primary">Open post</a>
                         </div>
                     </div>
                 </div>

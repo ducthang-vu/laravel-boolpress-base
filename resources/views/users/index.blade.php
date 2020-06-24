@@ -33,11 +33,12 @@
                             <div class="p-3">
                                 @if($item->getTable() == 'comments')
                                     <p>
-                                        Commented on <a href="{{ Route('posts.show', $item->post->id) }}">{{ $item->post->title }}</a>
+                                        Commented on <a
+                                            href="{{ Route('posts.show', $item->post->slug) }}">{{ $item->post->title }}</a>
                                     </p>
                                 @elseif($item->getTable() == 'posts')
                                     <p>
-                                        Wrote a new post: <a href="{{ Route('posts.show', $item->id) }}">{{ $item->title }}</a>
+                                        Wrote a new post: <a href="{{ Route('posts.show', $item->slug) }}">{{ $item->title }}</a>
                                     </p>
                                 @endif
                             </div>
