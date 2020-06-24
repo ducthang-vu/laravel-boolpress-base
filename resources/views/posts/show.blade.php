@@ -2,9 +2,9 @@
 
 @section('main-content')
     <div class="container">
-        @if(session('post-deleted'))
-            <div class="alert alert-success">
-                <p>The post {{ session('post-deleted') }} has been deleted.</p>
+        @if(session('created'))
+            <div class="alert alert-success transition-invisible transition-invisible">
+                <p>Great, your post have been published!</p>
             </div>
         @endif
 
@@ -12,7 +12,6 @@
        <form class="d-inline" action="{{ route('posts.destroy', $post->id) }}" method=""POST">
            @csrf
            @method('DELETE')
-
            <input type="submit" class="btn btn-sm btn-danger" value="Delete">
        </form>
 
@@ -22,7 +21,7 @@
                 Author: <a href="{{ route('users.show', $post->user->id)}}">{{ $post->user->getFullName() }}</a>
             </li>
             <li class="list-group-item">
-                Tags: @forelse($post->tags as $tag) <a href="{{ route('home') }}" class="badge-pill badge-primary">#{{ $tag->name }}</a> @empty @endforelse
+                Tags: @forelse($post->tags as $tag) <a href="{{ route('home') }}" class="badge-pill badge-primary">{{ $tag->name }}</a> @empty @endforelse
             </li>
             <li class="list-group-item">
                 Created at: {{ $post->created_at }}

@@ -59,7 +59,7 @@ class PostController extends Controller
                 $newPost->tags()->attach($data['tags']);
             }
 
-            return redirect()->route('posts.show', $newPost->slug);
+            return redirect()->route('posts.show', $newPost->slug)->with('created', true);
         }
     }
 
@@ -129,7 +129,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         if (empty($post)) {
-            abort(404);
+            var_dump($post);
         }
 
         $title = $post->title;
@@ -138,7 +138,7 @@ class PostController extends Controller
         $deleted = $post->delete();
 
         if($deleted) {
-            return redirect()->route('post.index')->with('post-deleted', $title);
+            return redirect()->route('posts.index')->with('post-deleted', $title);
         }
     }
 }

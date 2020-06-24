@@ -2,6 +2,12 @@
 
 @section('main-content')
     <div class="post-index container">
+        @if(session('post-deleted'))
+            <div class="alert alert-success transition-invisible">
+                <p>The post {{ session('post-deleted') }} has been deleted.</p>
+            </div>
+        @endif
+
         <a href="{{ route('posts.create') }}" class="btn btn-primary">New post</a>
 
         <div class="pagination-box">
@@ -24,6 +30,10 @@
                                 Last update: {{ $post->updated_at }}
                             </h6>
                             <blockquote class="bg-light">{{ substr($post->body, 0, 150) }}...</blockquote>
+                            <p class="h6">
+                                @forelse($post->tags as $tag)
+                                    <a href="{{ route('home') }}" class="badge-pill badge-primary">{{ $tag->name }}</a>
+                                @empty @endforelse</p>
                             <a href="{{ Route('posts.show', $post->slug) }}" class="btn btn-primary">Open post</a>
                         </div>
                     </div>

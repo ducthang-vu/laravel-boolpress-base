@@ -39,6 +39,7 @@
                 {{ old('body') }}
             </textarea>
         </div>
+
         @foreach($tags as $tag)
             <div class="form-check">
                 <input
@@ -47,6 +48,7 @@
                     name="tags[]"
                     id="tag-{{ $loop->iteration }}"
                     value="{{ $tag->id }}"
+                    @if( is_array(old('tags')) && in_array($tag->id, old('tags'))) checked @endif
                 >
                 <label for="tag-{{ $loop->iteration }}">{{ $tag->name }}</label>
             </div>

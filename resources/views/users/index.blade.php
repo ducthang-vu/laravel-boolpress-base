@@ -30,7 +30,7 @@
                             Latest activity:
                         </h6>
                         @foreach ($user->getLatestActivity(4) as $item)
-                            <div class="p-3">
+                            <div class="pl-3 pb-3">
                                 @if($item->getTable() == 'comments')
                                     <p>
                                         Commented on <a

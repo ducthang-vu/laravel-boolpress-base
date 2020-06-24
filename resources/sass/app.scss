@@ -16,3 +16,19 @@
         transform: translateY(-10px);
     }
 }
+
+.transition-invisible {
+    opacity: 0;
+    animation: invisible 4s;
+    z-index: 1031; /*colpa di bootstrap!!!*/
+}
+
+@keyframes invisible {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
